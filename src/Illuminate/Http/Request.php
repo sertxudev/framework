@@ -169,6 +169,23 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     }
 
     /**
+     * Get the full URL for the request with the selected query string parameters.
+     *
+     * @param  array|string  $keys
+     * @return string
+     */
+    public function fullUrlSelectedQuery($keys)
+    {
+        $query = Arr::only($this->query(), $keys);
+
+        $question = $this->getBaseUrl().$this->getPathInfo() === '/' ? '/?' : '?';
+
+        return count($query) > 0
+            ? $this->url().$question.Arr::query($query)
+            : $this->url();
+    }
+
+    /**
      * Get the current path info for the request.
      *
      * @return string

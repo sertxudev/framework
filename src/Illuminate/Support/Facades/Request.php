@@ -12,6 +12,7 @@ namespace Illuminate\Support\Facades;
  * @method static string fullUrl()
  * @method static string fullUrlWithQuery(array $query)
  * @method static string fullUrlWithoutQuery(array|string $keys)
+ * @method static string fullUrlSelectedQuery(array|string $keys)
  * @method static string path()
  * @method static string decodedPath()
  * @method static string|null segment(int $index, string|null $default = null)
